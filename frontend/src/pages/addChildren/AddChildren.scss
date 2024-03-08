@@ -1,0 +1,40 @@
+@import "../../styles/utilities";
+
+.addchildren-container {
+  @include flexboxColumn;
+  justify-content: space-between;
+  margin: 80px auto;
+  width: 100vw;
+  height: 100vh;
+  padding-inline: 2em;
+  text-align: center;
+
+  form {
+    margin: 3em auto;
+  }
+  .check {
+    width: 100%;
+    margin: 0.3em 0;
+    text-align: left;
+
+    svg {
+      vertical-align: middle;
+      margin-right: 0.5em;
+    }
+
+    .svgIsNotClicked {
+      fill: white;
+      filter: drop-shadow(0 1px 1px hsla(215, 41%, 21%, 0.35));
+    }
+
+    .svgIsClicked {
+      fill: #50d3c4;
+    }
+  }
+
+  #walk,
+  #disabilities,
+  #allergy {
+    display: none;
+  }
+}

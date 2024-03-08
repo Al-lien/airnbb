@@ -1,0 +1,33 @@
+@import "../../styles/utilities";
+
+.booking {
+  @include flexboxRow;
+  justify-content: space-between;
+  width: 100%;
+  height: 3.75rem;
+  margin: 0.5rem auto;
+  padding-inline: 1em;
+  background-color: #f0f3fd;
+  border-radius: 10px;
+
+  .booking-user,
+  .booking-date {
+    flex: 1;
+  }
+
+  .icons,
+  .booking-date {
+    @include flexboxRow;
+    gap: 1rem;
+  }
+
+  p {
+    flex: 1;
+    font-size: 0.75rem;
+    text-align: left;
+  }
+
+  button:hover svg {
+    color: red;
+  }
+}

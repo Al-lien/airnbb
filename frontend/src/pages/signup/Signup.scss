@@ -1,0 +1,29 @@
+@import "../../styles/utilities";
+
+.signup-container {
+  @include flexboxColumn;
+  justify-content: space-around;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  padding-inline: 2em;
+  text-align: center;
+
+  * {
+    width: 100%;
+    color: $white;
+  }
+
+  fieldset {
+    @include flexboxRow;
+    border: none;
+
+    input {
+      width: 25%;
+    }
+
+    label {
+      text-align: left;
+    }
+  }
+}

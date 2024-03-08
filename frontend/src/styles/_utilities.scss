@@ -1,0 +1,65 @@
+// COLORS
+
+$black: #252525; // or #191919
+$white: #fffff0;
+$linearGradient: linear-gradient(
+  145deg,
+  rgba(71, 79, 255, 0.9) 0%,
+  rgba(89, 84, 249, 0.9) 10%,
+  rgba(227, 122, 204, 1) 100%
+);
+$darkpurple: #551a8b;
+$purple: #882aff;
+$lightpurple: #9c69e2;
+
+// MIXINS
+
+@mixin flexboxRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexboxColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin gridRow {
+  display: grid;
+  place-items: center;
+}
+
+@mixin viewPort($height: 100vh, $width: 100vw) {
+  height: $height;
+  width: $width;
+}
+
+// FONTS
+
+@mixin textStyle(
+  $fontFamily,
+  $fontFamilyDefault: "sans-serif",
+  $fontSize,
+  $fontWeight,
+  $lineHeight,
+  $fontColor
+) {
+  font-family: $fontFamily, $fontFamilyDefault;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: $fontColor;
+}
+
+$fontWeight-thin: 100;
+$fontWeight-extraLight: 200;
+$fontWeight-light: 300;
+$fontWeight-regular: 400;
+$fontWeight-medium: 500;
+$fontWeight-semiBold: 600;
+$fontWeight-bold: 700;
+$fontWeight-extraBod: 800;
+$fontWeight-black: 900;

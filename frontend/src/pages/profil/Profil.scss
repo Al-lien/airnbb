@@ -1,0 +1,40 @@
+@import "../../styles/utilities";
+
+.profil {
+  @include flexboxColumn;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  margin: 10em 0;
+  padding-inline: 3em;
+
+  div {
+    @include flexboxColumn;
+  }
+
+  div:first-child {
+    gap: 2rem;
+    text-align: start;
+
+    a {
+      width: 100%;
+    }
+  }
+
+  a,
+  button {
+    position: relative;
+    padding-left: 3em;
+    font-size: 1rem;
+    color: $black;
+
+    svg {
+      position: absolute;
+      color: $darkpurple;
+      left: 0;
+      top: -5px;
+      filter: drop-shadow(0 2px 4px hsla(0, 0%, 0%, 0.1));
+    }
+  }
+}

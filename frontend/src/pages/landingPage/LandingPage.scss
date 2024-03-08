@@ -1,0 +1,56 @@
+@import "../../styles/utilities";
+
+.landingpage-container {
+  @include flexboxColumn;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-around;
+  padding-inline: 2em;
+  text-align: center;
+  color: $white;
+
+  .babyplace {
+    width: 20rem;
+  }
+
+  p,
+  h2 {
+    width: 30ch;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 3.75rem;
+  }
+
+  h2 {
+    font-size: 1.55rem;
+  }
+
+  a {
+    position: relative;
+    width: 100%;
+    margin-right: 3em;
+    text-align: end;
+
+    svg {
+      position: absolute;
+      stroke-width: 3px;
+      background-color: $purple;
+      border: 5px solid $purple;
+      border-radius: 100%;
+      bottom: -5px;
+      right: -30px;
+    }
+  }
+
+  .title {
+    @include flexboxColumn;
+    gap: 1rem;
+    text-align: center;
+
+    img {
+      width: 55px;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import "../../styles/utilities";
+
+.chat {
+  @include flexboxColumn;
+
+  .chatname {
+    &::before {
+      border: 5px solid $purple;
+    }
+  }
+
+  p {
+    position: relative;
+
+    svg {
+      position: absolute;
+      color: green;
+      top: -1px;
+      right: -25px;
+    }
+  }
+}
+
+.chat-container {
+  width: 100vw;
+  height: 100vh;
+  margin-block: 80px;
+  padding: 1em;
+
+  .chat-sort {
+    @include flexboxRow;
+    justify-content: start;
+    gap: 1rem;
+
+    button {
+      padding: 0.75em;
+      border-radius: 10px;
+
+      &:hover {
+        background-color: #f3f4f8;
+      }
+
+      &:nth-child(1) {
+        background-color: #f3f4f8;
+      }
+    }
+  }
+}

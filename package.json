@@ -1,0 +1,24 @@
+{
+  "name": "blankreactapp",
+  "version": "1.0.0",
+  "description": "(**In progress**, still working on it...)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd ./backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"cd ./backend && npm run dev\" \"cd ./frontend && npm run dev\"",
+    "lint": "lint-staged"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "prop-types": "^15.8.1"
+  }
+}

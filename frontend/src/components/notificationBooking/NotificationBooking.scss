@@ -1,0 +1,30 @@
+@import "../../styles/utilities";
+
+.nurserybooking-container {
+  @include flexboxColumn;
+  height: 250px;
+  background: center / cover no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5)),
+    url("../../assets/nurserybooking.jpg");
+}
+
+.nurserybooking-content {
+  @include flexboxColumn;
+  gap: 1rem;
+  width: 80%;
+
+  p,
+  h3,
+  button {
+    width: 100%;
+    color: $white;
+  }
+
+  button {
+    padding: 1rem;
+    background-color: $lightpurple;
+    border-radius: 10px;
+
+    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
+  }
+}

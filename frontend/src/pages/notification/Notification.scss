@@ -1,0 +1,19 @@
+@import "../../styles/utilities";
+
+.notification-container {
+  width: 100%;
+  height: 100%;
+
+  .notification-scroll {
+    height: calc(100vh - 80px);
+    overflow-x: scroll;
+  }
+
+  .notification-title {
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+    color: $white;
+    position: absolute;
+  }
+}

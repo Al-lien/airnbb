@@ -1,0 +1,10 @@
+@import "../../styles/utilities";
+
+.children-container {
+  @include flexboxColumn;
+  justify-content: start;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  margin-top: 6em;
+}
