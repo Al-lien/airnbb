@@ -29,7 +29,7 @@ import useAuthContext from "../../hooks/useAuthContext";
 // styles
 import "./Reservation.scss";
 
-export async function action({ request }) {
+export async function reservationAction({ request }) {
   const formData = await request.formData();
   const child_id = formData.get("child");
   const availability_id = formData.get("availability");
@@ -47,7 +47,6 @@ export async function action({ request }) {
       }
     );
     if (response.ok) {
-      toast.success("Reservation pris en compte !", { duration: 1000 });
       return redirect("/home/account/mybooking");
     }
     if (!response.ok) {

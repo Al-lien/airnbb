@@ -22,6 +22,7 @@ const availabilitySchema = new mongoose.Schema({
     default: "false",
     required: true,
   },
+  // 👇 this is a mistake, availability.place_max doesn't exist on the MPD. Use nursery.place_max instead.
   place_max: {
     type: Number,
     default: 0, // Set a default value, it will be overridden below

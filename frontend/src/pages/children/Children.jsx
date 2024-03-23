@@ -37,8 +37,11 @@ function Children() {
 
   return (
     <main className="children-container">
-      {children &&
-        children.map((child) => <Child key={child._id} child={child} />)}
+      {children?.length > 0 ? (
+        children.map((child) => <Child key={child._id} child={child} />)
+      ) : (
+        <h2>Vous n'avez pas d'enfant enregistré ...</h2>
+      )}
     </main>
   );
 }

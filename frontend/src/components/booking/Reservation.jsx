@@ -1,6 +1,9 @@
 // proptypes
 import PropTypes from "prop-types";
 
+// react-router-dom
+import { Form } from "react-router-dom";
+
 // library
 import { CalendarDaysIcon, TrashIcon } from "@heroicons/react/24/outline";
 
@@ -14,7 +17,7 @@ import { formatMyBookingDate } from "../../utils";
 // styles
 import "./Reservation.scss";
 
-function Booking({ child, date }) {
+function Booking({ child, date, _id }) {
   const {
     firstname: childfirstname,
     lastname: childlastname,
@@ -23,7 +26,7 @@ function Booking({ child, date }) {
   const { firstname: parentfirstname, lastname: parentlastname } = parent_id;
 
   return (
-    <button type="button" className="booking">
+    <div type="button" className="booking">
       <div className="booking-user">
         <div className="icons">
           <img src={ChildIcon} alt="children" />
@@ -42,15 +45,19 @@ function Booking({ child, date }) {
       <div className="booking-date">
         <CalendarDaysIcon width={30} />
         <p>{formatMyBookingDate(date)}</p>
-        <button type="button" aria-label="delete reservation">
-          <TrashIcon width={20} />
-        </button>
+        <Form method="DELETE">
+          <input type="hidden" name="_id" value={_id} />
+          <button type="submit" aria-label="delete reservation">
+            <TrashIcon width={20} />
+          </button>
+        </Form>
       </div>
-    </button>
+    </div>
   );
 }
 
 Booking.propTypes = {
+  _id: PropTypes.string.isRequired,
   child: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     firstname: PropTypes.string.isRequired,

@@ -19,6 +19,12 @@
   svg {
     color: $darkpurple;
   }
+
+  a {
+    margin-right: 2em;
+    position: absolute;
+    right: 0;
+  }
 }
 
 .header-parentname {
@@ -33,4 +39,10 @@
     bottom: 10px;
     position: absolute;
   }
+}
+
+.goback-btn {
+  margin-left: 2em;
+  position: absolute;
+  left: 0;
 }

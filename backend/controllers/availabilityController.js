@@ -75,7 +75,7 @@ const updateAvailability = async (req, res) => {
       return res.status(400).json({ error: "No such availability" });
     }
 
-    // Update isFull based on place_booked and place_max
+    // Update isFull based on availability.place_booked and nursery.place_max
     if (availability.place_booked === availability.place_max) {
       availability.isFull = true;
     } else {
@@ -99,7 +99,6 @@ async function deletePastAvailabilities() {
   }
 }
 
-// Call the function to delete past availabilities
 deletePastAvailabilities();
 
 module.exports = {

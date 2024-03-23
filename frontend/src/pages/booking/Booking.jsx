@@ -1,9 +1,38 @@
-// pages && components
+// react-router
 import { useLoaderData } from "react-router-dom";
+
+// library
+import toast, { Toaster } from "react-hot-toast";
+
+// pages && components
 import Reservation from "../../components/booking/Reservation";
 
 // styles
 import "./Booking.scss";
+
+export async function bookingAction({ request }) {
+  const formData = await request.formData();
+  const _id = formData.get("_id");
+
+  if (_id !== "") {
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/airnbb/booking/${_id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (response.ok) {
+      toast.success("Reservation supprimée", { duration: 1000 });
+    }
+    if (!response.ok) {
+      toast.error("Il y a eu un problème ...", { duration: 1000 });
+    }
+  }
+  return null;
+}
 
 export async function loader() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -11,6 +40,7 @@ export async function loader() {
     `${import.meta.env.VITE_BACKEND_URL}/airnbb/booking/parent/${user.id}`
   );
   const bookings = await response.json();
+
   return bookings;
 }
 
@@ -19,18 +49,19 @@ function Booking() {
 
   return (
     <main className="booking-container">
+      <Toaster position="top-center" reverseOrder={false} />
       <header className="booking-header">
         <button type="button" className="active">
-          Toutes les réservations
+          Réservations
         </button>
         <button type="button" className="inactive">
-          jour
+          Jour
         </button>
         <button type="button" className="inactive">
-          semaine
+          Semaine
         </button>
         <button type="button" className="inactive">
-          mois
+          Mois
         </button>
       </header>
       <div className="booking-list-container">
@@ -39,6 +70,7 @@ function Booking() {
             userBookings.map((booking) => (
               <Reservation
                 key={booking._id}
+                _id={booking._id}
                 child={booking.child_id}
                 date={booking.availability_id.day}
               />

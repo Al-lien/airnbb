@@ -52,3 +52,36 @@ export function makeDatesArray() {
 
   return datesArray;
 }
+
+// display header title depending on url path
+function checkLastChar(str) {
+  return str.slice(-1) === "/";
+}
+
+function selectTitle(str) {
+  switch (str) {
+    case "favorite":
+      return "Mes favoris";
+    case "children":
+      return "Mes enfants";
+    case "addchildren":
+      return "Ajouter un enfant";
+    case "mybooking":
+      return "Mes reservations";
+    case "account":
+      return "Mon profil";
+    default:
+      return "Modifier mon enfant";
+  }
+}
+
+export function displayTitle(path) {
+  let trimmedPath = path.toLowerCase();
+
+  if (checkLastChar(path)) {
+    trimmedPath = path.slice(0, -1);
+  }
+  const lastIndex = trimmedPath.lastIndexOf("/");
+  const lastWord = trimmedPath.substring(lastIndex + 1);
+  return selectTitle(lastWord);
+}

@@ -25,7 +25,10 @@ import Chat from "./pages/chat/Chat";
 import Profil from "./pages/profil/Profil";
 import Favorite from "./pages/favorite/Favorite";
 import Children, { loader as ChildrenLoader } from "./pages/children/Children";
-import Booking, { loader as MyBookingLoader } from "./pages/booking/Booking";
+import Booking, {
+  loader as MyBookingLoader,
+  bookingAction,
+} from "./pages/booking/Booking";
 import AddChildren from "./pages/addChildren/AddChildren";
 import EditChildren, {
   loader as EditLoader,
@@ -33,13 +36,13 @@ import EditChildren, {
 import Nursery, {
   loader as SingleNurseryLoader,
 } from "./pages/nursery/Nursery";
+import Reservation, {
+  reservationAction,
+  loader as reservationLoader,
+} from "./pages/reservation/Reservation";
 
 // styles
 import "./App.scss";
-import Reservation, {
-  action,
-  loader as reservationLoader,
-} from "./pages/reservation/Reservation";
 
 function App() {
   const { user } = useAuthContext();
@@ -64,7 +67,7 @@ function App() {
             path="booking/:id"
             element={<Reservation />}
             loader={reservationLoader}
-            action={action}
+            action={reservationAction}
           />
           <Route path="search" element={<Search />} />
           <Route path="account" element={<Account />} loader={AccountLoader}>
@@ -85,6 +88,7 @@ function App() {
               path="mybooking"
               element={<Booking />}
               loader={MyBookingLoader}
+              action={bookingAction}
             />
           </Route>
           <Route path="notification" element={<Notification />} />

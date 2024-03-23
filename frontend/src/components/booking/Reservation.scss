@@ -9,6 +9,12 @@
   padding-inline: 1em;
   background-color: #f0f3fd;
   border-radius: 10px;
+  transition: transform 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.025);
+  }
 
   .booking-user,
   .booking-date {

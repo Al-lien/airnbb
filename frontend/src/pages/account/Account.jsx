@@ -1,3 +1,6 @@
+// react
+import { useState } from "react";
+
 // react-router
 import { Outlet, useLoaderData } from "react-router-dom";
 
@@ -15,10 +18,19 @@ export async function loader() {
 
 function Account() {
   const user = useLoaderData();
+  const userName = user.firstname.concat(` ${user.lastname}`);
+  const [headerTitle, setHeaderTitle] = useState(userName);
+
   return (
     <>
-      <Header userName={user} />
-      <Outlet />
+      {user && (
+        <Header
+          userName={user}
+          headerTitle={headerTitle}
+          setHeaderTitle={setHeaderTitle}
+        />
+      )}
+      <Outlet context={[headerTitle, setHeaderTitle]} />
     </>
   );
 }

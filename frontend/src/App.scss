@@ -34,7 +34,7 @@ button {
   transition: transform 0.2s;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.025);
   }
 }
 
@@ -44,5 +44,121 @@ a {
 
   &:visited {
     color: inherit;
+  }
+}
+
+@media only screen and (width > 375px) {
+  body {
+    width: 60%;
+    margin-inline: auto;
+  }
+
+  .profil {
+    button {
+      font-size: 3vw;
+    }
+    div:first-child {
+      width: clamp(200px, 100%, 405px);
+
+      a {
+        font-size: 3vw;
+      }
+    }
+  }
+}
+
+@media only screen and (width > 630px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: clamp(340px, 100%, 800px);
+    margin-inline: auto;
+  }
+}
+
+@media only screen and (width > 900px) {
+  body {
+    width: auto;
+    margin-inline: 0;
+    padding-left: 80px;
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: clamp(340px, 100%, 1250px);
+  }
+
+  .home-container .list {
+    height: 100vh;
+  }
+
+  .profil div:first-child a,
+  .profil button {
+    font-size: 2vw;
+  }
+
+  .profil svg {
+    width: 50px;
+  }
+
+  .nurserybooking-content {
+    width: 50%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    height: 100%;
+    width: 80px;
+    left: 0;
+    background: linear-gradient(
+      145deg,
+      rgba(71, 79, 255, 1) 0%,
+      rgba(89, 84, 249, 1) 10%,
+      rgba(227, 122, 204, 1) 100%
+    );
+
+    .underline {
+      width: auto;
+
+      &::after {
+        background: linear-gradient(
+          135deg,
+          rgba(156, 105, 226, 0.5) 0%,
+          rgba(255, 255, 240, 0.9) 100%
+        );
+      }
+    }
+
+    a svg {
+      color: $white;
+    }
+  }
+
+  .navbar .active:nth-child(1) ~ .underline {
+    translate: 0 -40%;
+  }
+
+  .navbar .active:nth-child(2) ~ .underline {
+    translate: 0 -20%;
+  }
+
+  .navbar .active:nth-child(3) ~ .underline {
+    translate: 0;
+  }
+
+  .navbar .active:nth-child(4) ~ .underline {
+    translate: 0 20%;
+  }
+
+  .navbar .active:nth-child(5) ~ .underline {
+    translate: 0 40%;
+  }
+
+  .search-container,
+  .profil,
+  .header,
+  .notification-container,
+  .chat-container {
+    width: calc(100vw - 80px);
   }
 }

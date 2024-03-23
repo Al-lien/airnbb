@@ -14,7 +14,7 @@ const bookingRoutes = require("./routes/bookingRoutes");
 // 👇 express app
 const app = express();
 
-// 👇 middleware
+// 👇 middleware 🚨 don't forget to change the origin "http://localhost:5173/"
 app.use(
   cors({
     origin: "*",

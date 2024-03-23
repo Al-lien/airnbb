@@ -42,7 +42,7 @@ const loginUser = async (req, res) => {
     // create jwt
     const token = createToken(user._id);
 
-    res.status(200).json({ id: user._id, token });
+    res.status(200).json({ id: user._id, token, ispro: user.ispro });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -67,7 +67,7 @@ const signupUser = async (req, res) => {
     // create jwt
     const token = createToken(user._id);
 
-    res.status(200).json({ email, token });
+    res.status(200).json({ id: user._id, token, ispro: user.ispro });
   } catch (error) {
     console.info(req.body);
     res.status(400).json({ error: error.message });
