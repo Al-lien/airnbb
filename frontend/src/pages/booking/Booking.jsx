@@ -67,14 +67,16 @@ function Booking() {
       <div className="booking-list-container">
         <div className="booking-list">
           {userBookings.length > 0 ? (
-            userBookings.map((booking) => (
-              <Reservation
-                key={booking._id}
-                _id={booking._id}
-                child={booking.child_id}
-                date={booking.availability_id.day}
-              />
-            ))
+            userBookings.map((booking) => {
+              return (
+                <Reservation
+                  key={booking._id}
+                  _id={booking._id}
+                  child={booking.child_id}
+                  date={booking.availability_id.day}
+                />
+              );
+            })
           ) : (
             <p>Vous n'avez pas de réservation ...</p>
           )}

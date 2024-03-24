@@ -3,7 +3,7 @@
 .dashboardform {
   @include flexboxColumn;
   flex: 2;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
 
   button {

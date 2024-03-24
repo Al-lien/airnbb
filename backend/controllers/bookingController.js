@@ -54,7 +54,6 @@ const getBookingByParentId = async (req, res) => {
   if (!booking) {
     return res.status(404).json({ error: "No such booking" });
   }
-
   return res.status(200).json(booking);
 };
 
@@ -63,9 +62,9 @@ const createBooking = async (req, res) => {
 
   try {
     const booking = await Booking.makeReservation(availability_id, child_id);
-    res.status(200).json(booking);
+    res.status(201).json(booking);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 

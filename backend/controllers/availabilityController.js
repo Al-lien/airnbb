@@ -50,10 +50,26 @@ const createAvailability = async (req, res) => {
       nursery_id,
       day,
     });
-    res.status(200).json(availability);
+    res.status(201).json(availability);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
+};
+
+const deleteAvailability = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such booking" });
+  }
+
+  const availability = await Availability.findOneAndDelete({ _id: id });
+
+  if (!availability) {
+    return res.status(404).json({ error: "No such availability" });
+  }
+
+  return res.status(200).json({ message: `availability ${id} deleted` });
 };
 
 // UPDATE AVAILABILITY
@@ -72,7 +88,7 @@ const updateAvailability = async (req, res) => {
     );
 
     if (!availability) {
-      return res.status(400).json({ error: "No such availability" });
+      return res.status(404).json({ error: "No such availability" });
     }
 
     // Update isFull based on availability.place_booked and nursery.place_max
@@ -107,4 +123,5 @@ module.exports = {
   createAvailability,
   updateAvailability,
   getSingleAvailability,
+  deleteAvailability,
 };

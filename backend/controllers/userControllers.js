@@ -44,7 +44,7 @@ const loginUser = async (req, res) => {
 
     res.status(200).json({ id: user._id, token, ispro: user.ispro });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -70,7 +70,7 @@ const signupUser = async (req, res) => {
     res.status(200).json({ id: user._id, token, ispro: user.ispro });
   } catch (error) {
     console.info(req.body);
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -85,7 +85,7 @@ const updateData = async (req, res) => {
   const user = await User.findOneAndUpdate({ _id: id }, { ...req.body });
 
   if (!user) {
-    return res.status(400).json({ error: "No such user" });
+    return res.status(404).json({ error: "No such user" });
   }
 
   return res.status(200).json(user);
