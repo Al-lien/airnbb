@@ -34,8 +34,7 @@ export async function bookingAction({ request }) {
   return null;
 }
 
-export async function loader() {
-  const user = JSON.parse(localStorage.getItem("user"));
+export async function loader(user) {
   const response = await fetch(
     `${import.meta.env.VITE_BACKEND_URL}/airnbb/booking/parent/${user.id}`
   );

@@ -56,7 +56,13 @@ function App() {
           <Route path="signup" element={<Signup />} />
         </Route>
 
-        <Route path="/home" element={<Dashboard />} loader={DashboardLoader}>
+        <Route
+          path="/home"
+          element={<Dashboard />}
+          loader={() => {
+            return DashboardLoader(user);
+          }}
+        >
           <Route index element={<Home />} loader={NurseryLoader} />
           <Route
             path="nursery/:id"
@@ -70,12 +76,20 @@ function App() {
             action={reservationAction}
           />
           <Route path="search" element={<Search />} />
-          <Route path="account" element={<Account />} loader={AccountLoader}>
+          <Route
+            path="account"
+            element={<Account />}
+            loader={() => {
+              return AccountLoader(user);
+            }}
+          >
             <Route index element={<Profil />} />
             <Route
               path="children"
               element={<Children />}
-              loader={ChildrenLoader}
+              loader={() => {
+                return ChildrenLoader(user);
+              }}
             />
             <Route path="addchildren" element={<AddChildren />} />
             <Route
@@ -87,7 +101,9 @@ function App() {
             <Route
               path="mybooking"
               element={<Booking />}
-              loader={MyBookingLoader}
+              loader={() => {
+                return MyBookingLoader(user);
+              }}
               action={bookingAction}
             />
           </Route>

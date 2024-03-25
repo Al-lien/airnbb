@@ -7,10 +7,9 @@ import { Outlet, useLoaderData } from "react-router-dom";
 // styles
 import Header from "../../components/accountHeader/AccountHeader";
 
-export async function loader() {
-  const { id } = JSON.parse(localStorage.getItem("user"));
+export async function loader(user) {
   const response = await fetch(
-    `${import.meta.env.VITE_BACKEND_URL}/airnbb/users/${id}`
+    `${import.meta.env.VITE_BACKEND_URL}/airnbb/users/${user.id}`
   );
   const json = await response.json();
   return json;

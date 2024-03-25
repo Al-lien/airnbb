@@ -45,10 +45,6 @@ const getBookingByParentId = async (req, res) => {
     .populate({
       path: "availability_id",
       select: "day",
-      populate: {
-        path: "nursery_id",
-        select: "name",
-      },
     });
 
   if (!booking) {

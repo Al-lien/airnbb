@@ -9,8 +9,8 @@ import Child from "../../components/child/Child";
 import "./Children.scss";
 import useChildContext from "../../hooks/useChildContext";
 
-export async function loader() {
-  return JSON.parse(localStorage.getItem("user"));
+export async function loader(user) {
+  return user;
 }
 
 function Children() {

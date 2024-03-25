@@ -7,8 +7,7 @@ import Navbar from "../../components/navbar/Navbar";
 // styles
 import "./Dashboard.scss";
 
-export async function loader() {
-  const user = JSON.parse(localStorage.getItem("user"));
+export async function loader(user) {
   if (!user) {
     return <Navigate to="/login" />;
   }
